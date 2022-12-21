@@ -1,0 +1,21 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+  width: 100%;
+}
+.header {
+  grid-column: 1 / 11;
+  grid-row: 0 / 0;
+  grid-row: 1;
+}
+.students-page {
+  grid-column: 2 / 10;
+  grid-row: 2 / 8;
+}
+.toolbar {
+  grid-column: 1 / 2;
+  background-color: lightblue;
+  grid-row: 2 / 8;
+}

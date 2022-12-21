@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Student } from '../../models/students.model';
+import { StudentDialogComponent } from '../../shared/components/student-dialog/student-dialog.component';
 
 @Component({
   selector: 'app-students-page',
@@ -29,6 +31,36 @@ export class StudentsPageComponent implements OnInit {
     'edit',
     'delete',
   ];
+
+  constructor(private readonly dialogService: MatDialog) {}
+
+  addStudent() {
+    const dialog = this.dialogService.open(StudentDialogComponent);
+
+    dialog.afterClosed().subscribe((value) => {
+      if (value) {
+        const lastId = this.students[this.students.length - 1]?.id;
+        this.students = [
+          ...this.students,
+          new Student(
+            lastId + 1,
+            value.name,
+            value.lastName,
+            value.edad,
+            value.isActive
+          ),
+        ];
+      }
+    });
+  }
+  removeStudent(student: Student) {
+    this.students = this.students.filter((stu) => stu.id !== student.id);
+  }
+  editStudent(student: Student) {
+    const dialog = this.dialogService.open(StudentDialogComponent, {
+      data: student,
+    });
+  }
 
   ngOnInit(): void {}
 }

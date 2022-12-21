@@ -8,6 +8,9 @@ import { HeaderComponent } from './shared/layout/header/header.component';
 import { PageWrapperComponent } from './shared/layout/page-wrapper/page-wrapper.component';
 import { StudentsPageComponent } from './pages/students-page/students-page.component';
 import { MyMaterialModule } from './shared/modules/my-material.module';
+import { ToolbarComponent } from './shared/layout/toolbar/toolbar.component';
+import { StudentDialogComponent } from './shared/components/student-dialog/student-dialog.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,12 +18,15 @@ import { MyMaterialModule } from './shared/modules/my-material.module';
     HeaderComponent,
     PageWrapperComponent,
     StudentsPageComponent,
+    ToolbarComponent,
+    StudentDialogComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MyMaterialModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

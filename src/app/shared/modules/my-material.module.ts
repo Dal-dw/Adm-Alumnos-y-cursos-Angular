@@ -3,10 +3,24 @@ import { CommonModule } from '@angular/common';
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelect, MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [],
   imports: [CommonModule],
-  exports: [MatTableModule, MatButtonModule, MatIconModule],
+  exports: [
+    MatTableModule,
+    MatButtonModule,
+    MatIconModule,
+    MatToolbarModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+  ],
 })
 export class MyMaterialModule {}
