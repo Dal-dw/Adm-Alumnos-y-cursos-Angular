@@ -1,6 +1,6 @@
 import { Component, Inject } from '@angular/core';
 
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Student } from '../../../models/students.model';
 
@@ -10,10 +10,16 @@ import { Student } from '../../../models/students.model';
   styleUrls: ['./student-dialog.component.scss'],
 })
 export class StudentDialogComponent {
-  nameControl = new FormControl('');
-  lastNameControl = new FormControl('');
-  edadControl = new FormControl('');
-  isActiveControl = new FormControl('');
+  nameControl = new FormControl('', [
+    Validators.required,
+    Validators.minLength(3),
+  ]);
+  lastNameControl = new FormControl('', [
+    Validators.required,
+    Validators.minLength(2),
+  ]);
+  edadControl = new FormControl(0, [Validators.max(100)]);
+  isActiveControl = new FormControl(false);
   studentForm = new FormGroup({
     name: this.nameControl,
     lastName: this.lastNameControl,
@@ -25,6 +31,9 @@ export class StudentDialogComponent {
     @Inject(MAT_DIALOG_DATA) public data: Student | null
   ) {
     console.log(data);
+    if (data) {
+      this.studentForm.patchValue(data);
+    }
   }
 
   close() {

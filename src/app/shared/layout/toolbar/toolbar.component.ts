@@ -5,4 +5,6 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './toolbar.component.html',
   styleUrls: ['./toolbar.component.scss'],
 })
-export class ToolbarComponent {}
+export class ToolbarComponent {
+  options = ['Home', 'Cursos', 'Calendario', 'Calificaciones'];
+}

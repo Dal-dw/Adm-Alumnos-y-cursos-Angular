@@ -4,6 +4,7 @@ export class Student {
     public name: string,
     public lastName: string,
     public edad: number,
-    public isActive: boolean
+    public isActive: boolean,
+    public thumbnail: string
   ) {}
 }

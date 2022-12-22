@@ -1,8 +1,7 @@
 <div class="toolbar-container">
-  <h2>Toolbar</h2>
-  <button class="btn" mat-flat-button color="primary">Botón</button>
-  <button class="btn" mat-flat-button color="primary">Botón</button>
-  <button class="btn" mat-flat-button color="primary">Botón</button>
-  <button class="btn" mat-flat-button color="primary">Botón</button>
-  <button class="btn" mat-flat-button color="primary">Botón</button>
+  <mat-selection-list #shoes [multiple]="false">
+    <mat-list-option *ngFor="let option of options" [value]="option">
+      {{ option }}
+    </mat-list-option>
+  </mat-selection-list>
 </div>

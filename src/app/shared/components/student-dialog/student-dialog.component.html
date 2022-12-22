@@ -4,17 +4,21 @@
     <mat-form-field appearance="fill">
       <mat-label>Nombre</mat-label>
       <input [formControl]="nameControl" matInput placeholder="" />
+      <small class="text-danger">{{ nameControl.errors | json }} </small>
       <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
     </mat-form-field>
+
     <mat-form-field appearance="fill">
       <mat-label>Apellido</mat-label>
       <input [formControl]="lastNameControl" matInput placeholder="" />
+      <small class="text-danger">{{ lastNameControl.errors | json }} </small>
       <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
     </mat-form-field>
 
     <mat-form-field appearance="fill">
       <mat-label>Edad</mat-label>
       <input [formControl]="edadControl" matInput placeholder="" />
+      <small class="text-danger">{{ edadControl.errors | json }} </small>
       <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
     </mat-form-field>
 
