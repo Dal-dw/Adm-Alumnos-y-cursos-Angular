@@ -1,7 +1,10 @@
 <div class="toolbar-container">
   <mat-selection-list #shoes [multiple]="false">
-    <mat-list-option *ngFor="let option of options" [value]="option">
-      {{ option }}
+    <mat-list-option *ngFor="let opcionObj of opcionesObj" [value]="opcionObj">
+      <div class="opciones">
+        <mat-icon color="primary">{{ opcionObj.icono }}</mat-icon>
+        <span class="text">{{ opcionObj.opcion }}</span>
+      </div>
     </mat-list-option>
   </mat-selection-list>
 </div>

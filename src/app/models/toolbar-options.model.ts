@@ -1,10 +1,10 @@
 export class ToolbarOptions {
   constructor(
-    public first: string,
-    public second: string,
-    public third: string,
-    public forth: string,
-    public fifth: string,
-    public sexth: string
+    public first: object,
+    public second: object,
+    public third: object,
+    public forth: object,
+    public fifth: object,
+    public sexth: object
   ) {}
 }

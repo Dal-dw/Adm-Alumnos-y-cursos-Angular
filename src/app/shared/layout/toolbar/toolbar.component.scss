@@ -1,9 +1,17 @@
 .toolbar-container {
-  text-align: center;
   display: flex;
   flex-direction: column;
-  margin: 10px;
+  margin: 0px;
 }
 .btn {
   margin: 5px;
+}
+.opciones {
+  display: flex;
+  justify-content: baseline;
+}
+.text {
+  font-size: large;
+  margin-top: 5px;
+  margin-left: 2px;
 }

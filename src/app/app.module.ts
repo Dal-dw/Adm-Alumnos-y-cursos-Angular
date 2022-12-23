@@ -11,6 +11,7 @@ import { MyMaterialModule } from './shared/modules/my-material.module';
 import { ToolbarComponent } from './shared/layout/toolbar/toolbar.component';
 import { StudentDialogComponent } from './shared/components/student-dialog/student-dialog.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { TitleSizeDirective } from './directives/title-size.directive';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     StudentsPageComponent,
     ToolbarComponent,
     StudentDialogComponent,
+    TitleSizeDirective,
   ],
   imports: [
     BrowserModule,
