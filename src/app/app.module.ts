@@ -12,6 +12,8 @@ import { ToolbarComponent } from './shared/layout/toolbar/toolbar.component';
 import { StudentDialogComponent } from './shared/components/student-dialog/student-dialog.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TitleSizeDirective } from './directives/title-size.directive';
+import { HttpClientModule } from '@angular/common/http';
+import { StudentsRComponent } from './pages/students-r/students-r.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,7 @@ import { TitleSizeDirective } from './directives/title-size.directive';
     ToolbarComponent,
     StudentDialogComponent,
     TitleSizeDirective,
+    StudentsRComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,6 +32,7 @@ import { TitleSizeDirective } from './directives/title-size.directive';
     BrowserAnimationsModule,
     MyMaterialModule,
     ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
