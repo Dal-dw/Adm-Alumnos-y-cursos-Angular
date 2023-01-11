@@ -1,40 +1,41 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HeaderComponent } from './shared/layout/header/header.component';
-import { PageWrapperComponent } from './shared/layout/page-wrapper/page-wrapper.component';
-import { StudentsPageComponent } from './pages/students-page/students-page.component';
-import { MyMaterialModule } from './shared/modules/my-material.module';
-import { ToolbarComponent } from './shared/layout/toolbar/toolbar.component';
-import { StudentDialogComponent } from './shared/components/student-dialog/student-dialog.component';
-import { ReactiveFormsModule } from '@angular/forms';
+
+import { AppComponent } from './app.component';
 import { TitleSizeDirective } from './directives/title-size.directive';
+
+import { MyMaterialModule } from './shared/modules/my-material.module';
 import { HttpClientModule } from '@angular/common/http';
-import { StudentsRComponent } from './pages/students-r/students-r.component';
+import { SharedModule } from './shared/modules/shared-module';
+import { LayoutModule } from './shared/layout/layout.module';
+import { UsersPageModule } from './pages/users-page/users-page.module';
+import { RouterModule, Routes } from '@angular/router';
+import { UsersPageComponent } from './pages/users-page/users-page.component';
+import { StudentsPageComponent } from './pages/students-page/students-page.component';
+import { CoursesPageComponent } from './pages/courses-page/courses-page.component';
+
+const rutas: Routes = [
+  { path: 'users', component: UsersPageComponent },
+  { path: 'students', component: StudentsPageComponent },
+  { path: 'courses', component: CoursesPageComponent },
+];
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    PageWrapperComponent,
-    StudentsPageComponent,
-    ToolbarComponent,
-    StudentDialogComponent,
-    TitleSizeDirective,
-    StudentsRComponent,
-  ],
+  declarations: [AppComponent, TitleSizeDirective],
+  providers: [],
+  bootstrap: [AppComponent],
   imports: [
     BrowserModule,
+    SharedModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MyMaterialModule,
-    ReactiveFormsModule,
     HttpClientModule,
+    LayoutModule,
+    UsersPageModule,
+    RouterModule.forRoot(rutas),
   ],
-  providers: [],
-  bootstrap: [AppComponent],
 })
 export class AppModule {}

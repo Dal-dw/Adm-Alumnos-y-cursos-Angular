@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { StudentApiResult } from 'src/app/models/sudentsApiModel';
-import { StudentDataService } from '../../services/student-data.service';
+import { StudentDataService } from '../../services/student-data.service(prueba)';
 
 @Component({
   selector: 'app-students-r',

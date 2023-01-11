@@ -1,10 +1,8 @@
-export class ToolbarOptions {
-  constructor(
-    public first: object,
-    public second: object,
-    public third: object,
-    public forth: object,
-    public fifth: object,
-    public sexth: object
-  ) {}
+export interface ToolbarOptions {
+  option: ToolbarOption;
+}
+
+export interface ToolbarOption {
+  option: String;
+  icon: String;
 }

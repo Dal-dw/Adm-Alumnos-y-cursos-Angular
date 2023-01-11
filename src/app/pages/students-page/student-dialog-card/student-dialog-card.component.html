@@ -1,0 +1,100 @@
+<h1 mat-dialog-title>Detalles del Alumno</h1>
+<div mat-dialog-content>
+  <mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title-group>
+        <mat-card-title
+          >{{ studentDetails.name }}
+          {{ studentDetails.lastName }}</mat-card-title
+        >
+        <mat-card-subtitle
+          >Edad: {{ studentDetails.edad }} ({{
+            studentDetails.tipo
+          }})</mat-card-subtitle
+        >
+        <img class="img" mat-card-xl-image [src]="studentDetails.thumbnail" />
+      </mat-card-title-group>
+    </mat-card-header>
+
+    <mat-card-content class="card-content">
+      <table
+        mat-table
+        [dataSource]="studentDetails.cursando"
+        class="mat-elevation-z8"
+      >
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef>Id.</th>
+          <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+        </ng-container>
+        <ng-container matColumnDef="name">
+          <th class="columna-courses" mat-header-cell *matHeaderCellDef>
+            Curso
+          </th>
+          <td class="columna-courses" mat-cell *matCellDef="let element">
+            {{ element.name }}
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="hours">
+          <th class="columna-courses" mat-header-cell *matHeaderCellDef>
+            Horas
+          </th>
+          <td mat-cell *matCellDef="let element">{{ element.hours }}</td>
+        </ng-container>
+        <ng-container matColumnDef="classes">
+          <th class="columna-courses" mat-header-cell *matHeaderCellDef>
+            Clases
+          </th>
+          <td class="columna-courses" mat-cell *matCellDef="let element">
+            {{ element.classes }}
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="teacher">
+          <th class="td-prof" mat-header-cell *matHeaderCellDef>Profesor</th>
+          <td class="td-prof" mat-cell *matCellDef="let element">
+            {{ element.teacher }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="thumbnail">
+          <th class="td-img" mat-header-cell *matHeaderCellDef>Thumbnail</th>
+          <td class="td-img" mat-cell *matCellDef="let element">
+            <img class="img-courses" [src]="element.thumbnail" alt="" />
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="edit">
+          <th mat-header-cell *matHeaderCellDef></th>
+          <td mat-cell *matCellDef="let element">
+            <button
+              mat-icon-button
+              color="primary"
+              aria-label="Example icon button with a plus one icon"
+            >
+              <mat-icon>edit</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="delete">
+          <th mat-header-cell *matHeaderCellDef></th>
+          <td mat-cell *matCellDef="let element">
+            <button
+              mat-icon-button
+              color="primary"
+              aria-label="Example icon button with a plus one icon"
+            >
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+    </mat-card-content>
+  </mat-card>
+</div>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close>No</button>
+  <button mat-button mat-dialog-close cdkFocusInitial>Ok</button>
+</div>
+>

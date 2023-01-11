@@ -2,14 +2,14 @@ import { Component, Inject } from '@angular/core';
 
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Student } from '../../../models/students.model';
+import { User } from '../../../models/users.model';
 
 @Component({
-  selector: 'app-student-dialog',
-  templateUrl: './student-dialog.component.html',
-  styleUrls: ['./student-dialog.component.scss'],
+  selector: 'app-user-dialog',
+  templateUrl: './user-dialog.component.html',
+  styleUrls: ['./user-dialog.component.scss'],
 })
-export class StudentDialogComponent {
+export class UserDialogComponent {
   nameControl = new FormControl('', [
     Validators.required,
     Validators.minLength(3),
@@ -20,20 +20,19 @@ export class StudentDialogComponent {
   ]);
   edadControl = new FormControl(0, [Validators.max(100)]);
   isActiveControl = new FormControl(false);
-
-  studentForm = new FormGroup({
+  userForm = new FormGroup({
     name: this.nameControl,
     lastName: this.lastNameControl,
     edad: this.edadControl,
     isActive: this.isActiveControl,
   });
   constructor(
-    private readonly MatDialogRef: MatDialogRef<StudentDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: Student | null
+    private readonly MatDialogRef: MatDialogRef<UserDialogComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: User | null
   ) {
     console.log(data);
     if (data) {
-      this.studentForm.patchValue(data);
+      this.userForm.patchValue(data);
     }
   }
 

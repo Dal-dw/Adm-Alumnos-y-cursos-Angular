@@ -1,14 +1,13 @@
-<h1 mat-dialog-title>Agregar Alumno</h1>
+<h1 mat-dialog-title>Agregar USUARIO</h1>
 <div mat-dialog-content class="form-container">
-  <form class="flex flex-column" [formGroup]="studentForm">
+  <form class="flex flex-column" [formGroup]="userForm">
     <mat-form-field appearance="fill">
       <mat-label>Nombre</mat-label>
       <input [formControl]="nameControl" matInput placeholder="" />
-      <small class="text-danger">{{ nameControl.errors | json }} </small>
     </mat-form-field>
 
     <mat-form-field appearance="fill">
-      <mat-label>Apellido</mat-label>
+      <mat-label>Foto</mat-label>
       <input [formControl]="lastNameControl" matInput placeholder="" />
     </mat-form-field>
 
@@ -20,7 +19,7 @@
 </div>
 <div mat-dialog-actions>
   <button mat-button mat-dialog-close>Cancelar</button>
-  <button mat-button [mat-dialog-close]="studentForm.value" cdkFocusInitial>
+  <button mat-button [mat-dialog-close]="userForm.value" cdkFocusInitial>
     Ok
   </button>
 </div>

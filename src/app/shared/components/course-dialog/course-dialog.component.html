@@ -1,0 +1,41 @@
+<h1 mat-dialog-title class="title">Agregar Curso</h1>
+<div mat-dialog-content class="form-container">
+  <form class="flex flex-column" [formGroup]="courseForm">
+    <mat-form-field appearance="fill">
+      <mat-label>Nombre</mat-label>
+      <input [formControl]="nameControl" matInput placeholder="" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="form">
+      <mat-label>Horas</mat-label>
+      <input [formControl]="hoursControl" matInput placeholder="" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Clases</mat-label>
+      <input [formControl]="classesControl" matInput placeholder="" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Profesor</mat-label>
+      <input [formControl]="teacherControl" matInput placeholder="" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Icono</mat-label>
+      <input [formControl]="thumbnailControl" matInput placeholder="URL" />
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions class="botones">
+  <button mat-button mat-dialog-close>Cancelar</button>
+  <button
+    mat-button
+    mat-flat-button
+    color="accent"
+    [mat-dialog-close]="courseForm.value"
+    cdkFocusInitial
+  >
+    Ok
+  </button>
+</div>

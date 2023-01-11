@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {
+  ToolbarOption,
+  ToolbarOptions,
+} from '../../../models/toolbar-options.model';
 
 @Component({
   selector: 'app-toolbar',
@@ -9,6 +13,7 @@ export class ToolbarComponent {
   /*   options = ['Home', 'Cursos', 'Calendario', 'Calificaciones'];
   icons = ['home', 'shopping_cart', 'event'];
 } */
+
   opcionesObj = [
     {
       opcion: 'Home',
@@ -16,10 +21,14 @@ export class ToolbarComponent {
     },
     {
       opcion: 'Cursos',
-      icono: 'shopping_cart',
+      icono: 'school',
     },
     {
-      opcion: 'Calendario',
+      opcion: 'Alumnos',
+      icono: 'person',
+    },
+    {
+      opcion: 'Inscripciones',
       icono: 'event',
     },
     {
