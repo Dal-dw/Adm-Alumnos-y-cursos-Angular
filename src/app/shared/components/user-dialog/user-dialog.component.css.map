@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "user-dialog.component.scss"
+    ],
+    "names": [],
+    "file": "user-dialog.component.css"
+}

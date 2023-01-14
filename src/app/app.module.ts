@@ -9,18 +9,8 @@ import { TitleSizeDirective } from './directives/title-size.directive';
 import { MyMaterialModule } from './shared/modules/my-material.module';
 import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from './shared/modules/shared-module';
-import { LayoutModule } from './shared/layout/layout.module';
+import { LayoutModule } from './pages/layout/layout.module';
 import { UsersPageModule } from './pages/users-page/users-page.module';
-import { RouterModule, Routes } from '@angular/router';
-import { UsersPageComponent } from './pages/users-page/users-page.component';
-import { StudentsPageComponent } from './pages/students-page/students-page.component';
-import { CoursesPageComponent } from './pages/courses-page/courses-page.component';
-
-const rutas: Routes = [
-  { path: 'users', component: UsersPageComponent },
-  { path: 'students', component: StudentsPageComponent },
-  { path: 'courses', component: CoursesPageComponent },
-];
 
 @NgModule({
   declarations: [AppComponent, TitleSizeDirective],
@@ -33,9 +23,6 @@ const rutas: Routes = [
     BrowserAnimationsModule,
     MyMaterialModule,
     HttpClientModule,
-    LayoutModule,
-    UsersPageModule,
-    RouterModule.forRoot(rutas),
   ],
 })
 export class AppModule {}

@@ -6,6 +6,7 @@ import { Student } from '../../models/students.model';
 import { StudentDialogComponent } from '../../shared/components/student-dialog/student-dialog.component';
 import { StudentDialogCardComponent } from './student-dialog-card/student-dialog-card.component';
 import { CoursesDataService } from '../../services/courses-data.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-students-page',
@@ -13,9 +14,10 @@ import { CoursesDataService } from '../../services/courses-data.service';
   styleUrls: ['./students-page.component.scss'],
 })
 export class StudentsPageComponent implements OnInit {
-  courses: Course[] = this.servicioCou.getCourses();
+  courses: Observable<Course[]> = this.servicioCou.getCourses();
 
-  students: Student[] = this.servicioStu.getStudents();
+  //students: Student[] = this.servicioStu.getStudents();
+  public students$: Observable<Student[]>;
 
   displayedColumns = [
     'id',
@@ -34,7 +36,7 @@ export class StudentsPageComponent implements OnInit {
     private servicioCou: CoursesDataService
   ) {}
 
-  addStudent() {
+  /* addStudent() {
     const dialog = this.dialogService.open(StudentDialogComponent);
 
     dialog.afterClosed().subscribe((value) => {
@@ -54,37 +56,29 @@ export class StudentsPageComponent implements OnInit {
         ];
       }
     });
+  } */
+
+  ngOnInit(): void {
+    this.students$ = this.servicioStu.students;
   }
-  removeStudent(student: Student) {
-    this.students = this.students.filter((stu) => stu.id !== student.id);
+
+  clickEliminar(element: Student) {
+    this.servicioStu.eliminarAlumno(element);
   }
-  editStudent(student: Student) {
+
+  editStudent(element: Student) {
     const dialog = this.dialogService.open(StudentDialogComponent, {
-      data: student,
+      data: element,
     });
     dialog.afterClosed().subscribe((data) => {
-      if (data) {
-        const tempArray = this.students.map((stu) =>
-          stu.id === student.id ? { ...stu, ...data } : stu
-        );
-        this.students = tempArray;
-      }
+      console.log(data);
+      this.servicioStu.editarAlumno(data);
     });
   }
 
-  detailStudent(student: Student) {
-    const dialog = this.dialogService.open(StudentDialogCardComponent, {
-      data: student,
-    });
-    dialog.afterClosed().subscribe((data) => {
-      if (data) {
-        const tempArray = this.students.map((stu) =>
-          stu.id === student.id ? { ...stu, ...data } : stu
-        );
-        this.students = tempArray;
-      }
+  detailStudent(element: Student) {
+    this.dialogService.open(StudentDialogCardComponent, {
+      data: element,
     });
   }
-
-  ngOnInit(): void {}
 }

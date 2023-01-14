@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Course } from '../../models/courses.model';
 import { CourseDialogComponent } from 'src/app/shared/components/course-dialog/course-dialog.component';
 import { CoursesDataService } from 'src/app/services/courses-data.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-courses-page',
@@ -12,7 +13,7 @@ import { CoursesDataService } from 'src/app/services/courses-data.service';
 export class CoursesPageComponent implements OnInit {
   ngOnInit(): void {}
 
-  public courses: Course[] = this.servicioCou.getCourses();
+  public courses: Observable<Course[]> = this.servicioCou.getCourses();
 
   displayedColumns = [
     'id',
@@ -30,7 +31,7 @@ export class CoursesPageComponent implements OnInit {
     private servicioCou: CoursesDataService
   ) {}
 
-  addCourse() {
+  /* addCourse() {
     const dialog = this.dialogService.open(CourseDialogComponent);
 
     dialog.afterClosed().subscribe((value) => {
@@ -65,5 +66,5 @@ export class CoursesPageComponent implements OnInit {
         this.courses = tempArray;
       }
     });
-  }
+  } */
 }

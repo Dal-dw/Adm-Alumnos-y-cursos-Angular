@@ -15,7 +15,7 @@ export class StudentDialogCardComponent implements OnInit {
     lastName: '',
     edad: 0,
     tipo: '',
-    cursando: Course[''],
+    cursando: [],
     thumbnail: '',
   };
 

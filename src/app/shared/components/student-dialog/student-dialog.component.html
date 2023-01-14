@@ -1,6 +1,6 @@
 <h1 mat-dialog-title>Agregar Alumno</h1>
 <div mat-dialog-content class="form-container">
-  <form class="flex flex-column" [formGroup]="studentForm">
+  <form class="flex flex-column" [formGroup]="studentForm" (ngSubmit)="close()">
     <mat-form-field appearance="fill">
       <mat-label>Nombre</mat-label>
       <input [formControl]="nameControl" matInput placeholder="" />
@@ -11,16 +11,33 @@
       <mat-label>Apellido</mat-label>
       <input [formControl]="lastNameControl" matInput placeholder="" />
     </mat-form-field>
+    {{ studentForm.errors | json }}
+    <br />
+    {{ studentForm.value | json }}
 
     <mat-form-field appearance="fill">
       <mat-label>Edad</mat-label>
       <input [formControl]="edadControl" matInput placeholder="" />
     </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Cursos</mat-label>
+      <mat-select [formControl]="cursandoControl" multiple>
+        <mat-select-trigger> </mat-select-trigger>
+        <mat-option *ngFor="let curso of cursando$ | async" [value]="curso">{{
+          curso.name
+        }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <div mat-dialog-actions>
+      <button mat-button mat-dialog-close>Cancelar</button>
+      <button
+        mat-button
+        [mat-dialog-close]="studentForm.value"
+        [type]=""
+        cdkFocusInitial
+      >
+        Ok
+      </button>
+    </div>
   </form>
-</div>
-<div mat-dialog-actions>
-  <button mat-button mat-dialog-close>Cancelar</button>
-  <button mat-button [mat-dialog-close]="studentForm.value" cdkFocusInitial>
-    Ok
-  </button>
 </div>

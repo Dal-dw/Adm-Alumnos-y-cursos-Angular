@@ -14,26 +14,31 @@ export class ToolbarComponent {
   icons = ['home', 'shopping_cart', 'event'];
 } */
 
-  opcionesObj = [
+  opcionesObj: ToolbarOption[] = [
     {
-      opcion: 'Home',
-      icono: 'home',
+      option: 'Home',
+      icon: 'home',
+      path: '',
     },
     {
-      opcion: 'Cursos',
-      icono: 'school',
+      option: 'Cursos',
+      icon: 'school',
+      path: 'cursos',
     },
     {
-      opcion: 'Alumnos',
-      icono: 'person',
+      option: 'Alumnos',
+      icon: 'person',
+      path: 'alumnos',
     },
     {
-      opcion: 'Inscripciones',
-      icono: 'event',
+      option: 'Inscripciones',
+      icon: 'event',
+      path: '',
     },
     {
-      opcion: 'Beneficios',
-      icono: 'card_giftcard',
+      option: 'Beneficios',
+      icon: 'card_giftcard',
+      path: '',
     },
   ];
 }

@@ -5,4 +5,5 @@ export interface ToolbarOptions {
 export interface ToolbarOption {
   option: String;
   icon: String;
+  path: String;
 }

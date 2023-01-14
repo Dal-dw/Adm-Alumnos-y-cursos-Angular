@@ -13,83 +13,43 @@ export class UsersPageComponent implements OnInit {
   users: User[] = [
     {
       id: 1,
-      name: 'Juan',
-      lastName: 'Pérez',
-      edad: 30,
+      email: 'juan@gmail.com',
+      first_name: 'Juan',
+      last_name: 'Pérez',
 
-      thumbnail: 'https://i.pravatar.cc/100?u=a042581f4e29026704y',
+      avatar: 'https://i.pravatar.cc/100?u=a042581f4e29026704y',
     },
     {
       id: 2,
-      name: 'Ana',
-      lastName: 'González',
-      edad: 25,
+      email: 'nombre@email.com',
+      first_name: 'Ana',
+      last_name: 'González',
 
-      thumbnail: 'https://i.pravatar.cc/100?u=a042581f4e29026704t',
+      avatar: 'https://i.pravatar.cc/100?u=a042581f4e29026704t',
     },
     {
       id: 3,
-      name: 'Pedro',
-      lastName: 'Martínez',
-      edad: 35,
+      email: 'nombre@email.com',
+      first_name: 'Pedro',
+      last_name: 'Martínez',
 
-      thumbnail: 'https://i.pravatar.cc/100?u=a042581f4e29026704u',
+      avatar: 'https://i.pravatar.cc/100?u=a042581f4e29026704u',
     },
     {
       id: 4,
-      name: 'Sandra',
-      lastName: 'Rodríguez',
-      edad: 28,
+      email: 'nombre@email.com',
+      first_name: 'Sandra',
+      last_name: 'Rodríguez',
 
-      thumbnail: 'https://i.pravatar.cc/100?u=a042581f4e29026704n',
+      avatar: 'https://i.pravatar.cc/100?u=a042581f4e29026704n',
     },
     {
       id: 5,
-      name: 'Laura',
-      lastName: 'Sánchez',
-      edad: 32,
+      email: 'nombre@email.com',
+      first_name: 'Laura',
+      last_name: 'Sánchez',
 
-      thumbnail: 'https://i.pravatar.cc/100?u=a042581f4e29026704d',
-    },
-    {
-      id: 6,
-      name: 'Pablo',
-      lastName: 'García',
-      edad: 40,
-
-      thumbnail: 'https://i.pravatar.cc/100?u=a042581f4e29026704g',
-    },
-    {
-      id: 7,
-      name: 'Mario',
-      lastName: 'López',
-      edad: 45,
-
-      thumbnail: 'https://i.pravatar.cc/100?u=a042581f4e29026704h',
-    },
-    {
-      id: 8,
-      name: 'Raquel',
-      lastName: 'Díaz',
-      edad: 37,
-
-      thumbnail: 'https://i.pravatar.cc/100?u=a042581f4e29026704i',
-    },
-    {
-      id: 9,
-      name: 'Ramona',
-      lastName: 'Fernández',
-      edad: 29,
-
-      thumbnail: 'https://i.pravatar.cc/100?u=a042581f4e29026704k',
-    },
-    {
-      id: 10,
-      name: 'Andrés',
-      lastName: 'Muñoz',
-      edad: 33,
-
-      thumbnail: 'https://i.pravatar.cc/100?u=a042581f4e29026704m',
+      avatar: 'https://i.pravatar.cc/100?u=a042581f4e29026704d',
     },
   ];
 
@@ -105,7 +65,7 @@ export class UsersPageComponent implements OnInit {
 
   constructor(private readonly dialogService: MatDialog) {}
 
-  addUser() {
+  /* addUser() {
     const dialog = this.dialogService.open(UserDialogComponent);
 
     dialog.afterClosed().subscribe((value) => {
@@ -123,7 +83,7 @@ export class UsersPageComponent implements OnInit {
         ];
       }
     });
-  }
+  } */
   removeUser(user: User) {
     this.users = this.users.filter((usr) => usr.id !== user.id);
   }

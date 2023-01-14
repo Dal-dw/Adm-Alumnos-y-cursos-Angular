@@ -1,0 +1,30 @@
+.toolbar-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 0px;
+}
+
+.btn {
+  margin: 5px;
+}
+
+.opciones {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.text {
+  font-size: large;
+  margin-top: 5px;
+  margin-left: 2px;
+}
+/*# sourceMappingURL=toolbar.component.css.map */

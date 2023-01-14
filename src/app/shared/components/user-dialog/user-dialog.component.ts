@@ -20,12 +20,7 @@ export class UserDialogComponent {
   ]);
   edadControl = new FormControl(0, [Validators.max(100)]);
   isActiveControl = new FormControl(false);
-  userForm = new FormGroup({
-    name: this.nameControl,
-    lastName: this.lastNameControl,
-    edad: this.edadControl,
-    isActive: this.isActiveControl,
-  });
+  userForm = new FormGroup({});
   constructor(
     private readonly MatDialogRef: MatDialogRef<UserDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: User | null
