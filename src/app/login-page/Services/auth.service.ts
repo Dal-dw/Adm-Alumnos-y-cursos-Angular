@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, map, mergeMap, tap } from 'rxjs';
+import { Observable, map, mergeMap, tap, of, catchError } from 'rxjs';
 import { SessionService } from 'src/app/shared/services/Session.service';
 import {
   LoginSuccessful,
@@ -24,6 +24,7 @@ export class AuthService {
       .post<LoginSuccessful>(`${this.apiUrl}/login`, data)
       .pipe(
         tap((data) => localStorage.setItem('token', data.token)),
+        tap((data) => localStorage.setItem('token', data.token)),
         mergeMap(() =>
           this.httpClient.get<SingleUserResponse>(`${this.apiUrl}/users/7`)
         ),
@@ -39,5 +40,20 @@ export class AuthService {
         ),
         tap((user) => this.sessionService.setUser(user))
       );
+  }
+
+  verifyToken(): Observable<boolean> {
+    const lsToken = localStorage.getItem('token');
+
+    return of(lsToken).pipe(
+      tap((token) => {
+        if (!token) throw new Error('Token invalido');
+      }),
+      mergeMap((token) =>
+        this.httpClient.get<SingleUserResponse>(`${this.apiUrl}/users/7`)
+      ),
+      map((user) => !!user),
+      catchError(() => of(false))
+    );
   }
 }

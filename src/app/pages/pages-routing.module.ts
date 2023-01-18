@@ -3,10 +3,12 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { PagesComponent } from './pages.component';
 import { LayoutComponent } from './layout/layout.component';
+import { GuardsGuard } from '../auth/guards.guard';
 
 const routes: Routes = [
   {
     path: 'panel',
+    canActivate: [GuardsGuard],
     component: LayoutComponent,
     children: [
       {
