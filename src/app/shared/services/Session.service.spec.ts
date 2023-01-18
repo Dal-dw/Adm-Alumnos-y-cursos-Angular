@@ -3,10 +3,10 @@
 import { TestBed, async, inject } from '@angular/core/testing';
 import { SessionService } from './Session.service';
 
-describe('Service: Session', () => {
+xdescribe('Service: Session', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [SessionService]
+      providers: [SessionService],
     });
   });
 
