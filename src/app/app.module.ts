@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from './shared/modules/shared-module';
 import { LayoutModule } from './pages/layout/layout.module';
 import { UsersPageModule } from './pages/users-page/users-page.module';
+import { StoreModule } from '@ngrx/store';
 
 @NgModule({
   declarations: [AppComponent, TitleSizeDirective],
@@ -23,6 +24,7 @@ import { UsersPageModule } from './pages/users-page/users-page.module';
     BrowserAnimationsModule,
     MyMaterialModule,
     HttpClientModule,
+    StoreModule.forRoot({}, {}),
   ],
 })
 export class AppModule {}
