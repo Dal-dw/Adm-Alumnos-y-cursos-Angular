@@ -10,6 +10,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelect, MatSelectModule } from '@angular/material/select';
 import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 @NgModule({
   declarations: [],
@@ -25,6 +26,7 @@ import { MatCardModule } from '@angular/material/card';
     MatSelectModule,
     MatListModule,
     MatCardModule,
+    MatSidenavModule,
   ],
 })
 export class MyMaterialModule {}

@@ -24,19 +24,21 @@ export class CourseDialogComponent {
 
   thumbnailControl = new FormControl();
 
+  idControl = new FormControl();
+
   courseForm = new FormGroup({
     name: this.nameControl,
     hours: this.hoursControl,
     classes: this.classesControl,
     teacher: this.teacherControl,
     thumbnail: this.thumbnailControl,
+    id: this.idControl,
   });
 
   constructor(
     private readonly MatDialogRef: MatDialogRef<CourseDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: Course | null
   ) {
-    console.log(data);
     if (data) {
       this.courseForm.patchValue(data);
     }

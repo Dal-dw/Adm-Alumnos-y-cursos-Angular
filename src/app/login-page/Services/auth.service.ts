@@ -24,7 +24,7 @@ export class AuthService {
       .post<LoginSuccessful>(`${this.apiUrl}/login`, data)
       .pipe(
         tap((data) => localStorage.setItem('token', data.token)),
-        tap((data) => localStorage.setItem('token', data.token)),
+
         mergeMap(() =>
           this.httpClient.get<SingleUserResponse>(`${this.apiUrl}/users/7`)
         ),
@@ -38,7 +38,8 @@ export class AuthService {
               data.avatar
             )
         ),
-        tap((user) => this.sessionService.setUser(user))
+        tap((user) => this.sessionService.setUser(user)),
+        tap((data) => localStorage.setItem('user', data.email))
       );
   }
 

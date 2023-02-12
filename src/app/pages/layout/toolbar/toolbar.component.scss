@@ -1,7 +1,23 @@
+.boton-menu {
+  color: rgb(211, 203, 243);
+  position: sticky;
+  top: 0px;
+}
 .toolbar-container {
+  position: sticky;
+  top: 0px;
+}
+
+.toolbar {
   display: flex;
   flex-direction: column;
   margin: 0px;
+  position: sticky;
+  top: 300px;
+  z-index: 999;
+  height: 100vh;
+  background: #000;
+  padding: 10px;
 }
 .btn {
   margin: 5px;
@@ -15,4 +31,12 @@
   margin-top: 5px;
   margin-left: 2px;
   text-decoration: none;
+  color: rgb(211, 203, 243);
+}
+
+.example-sidenav-content {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
 }

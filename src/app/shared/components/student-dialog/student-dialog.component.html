@@ -19,15 +19,64 @@
       <mat-label>Edad</mat-label>
       <input [formControl]="edadControl" matInput placeholder="" />
     </mat-form-field>
+
     <mat-form-field appearance="fill">
       <mat-label>Cursos</mat-label>
-      <mat-select [formControl]="cursandoControl" multiple>
+      <mat-select
+        [formControl]="cursandoControl"
+        multiple
+        (onSelectionChange)="onSelectionChange($event)"
+      >
         <mat-select-trigger> </mat-select-trigger>
-        <mat-option *ngFor="let curso of cursando$ | async" [value]="curso">{{
-          curso.name
-        }}</mat-option>
+        <mat-option
+          *ngFor="let curso of cursando$ | async"
+          [value]="{ nombre: curso.name, thumbnail: curso.thumbnail }"
+          class="optionCurso"
+        >
+          <img
+            class="imgCurso"
+            [src]="curso.thumbnail"
+            alt="profile pic"
+            class="cursando-img"
+          />
+          <span>{{ curso.name }} </span>
+        </mat-option>
       </mat-select>
     </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Elegir Foto de Perfil</mat-label>
+      <mat-select [formControl]="thumbnailControl">
+        <mat-option></mat-option>
+        <mat-option [value]="thumbnailRandom1"
+          ><img
+            class="imgCurso"
+            [src]="thumbnailRandom1"
+            alt="profile pic"
+            class="cursando-img"
+          />
+          <span>Imagen 1</span></mat-option
+        >
+        <mat-option [value]="thumbnailRandom2"
+          ><img
+            class="imgCurso"
+            [src]="thumbnailRandom2"
+            alt="profile pic"
+            class="cursando-img"
+          />
+          <span>Imagen 2</span></mat-option
+        ><mat-option [value]="thumbnailRandom3"
+          ><img
+            class="imgCurso"
+            [src]="thumbnailRandom3"
+            alt="profile pic"
+            class="cursando-img"
+          />
+          <span>Imagen 3</span></mat-option
+        >
+      </mat-select>
+    </mat-form-field>
+
     <div mat-dialog-actions>
       <button mat-button mat-dialog-close>Cancelar</button>
       <button

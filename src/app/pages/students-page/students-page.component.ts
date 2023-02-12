@@ -6,7 +6,16 @@ import { Student } from '../../models/students.model';
 import { StudentDialogComponent } from '../../shared/components/student-dialog/student-dialog.component';
 import { StudentDialogCardComponent } from './student-dialog-card/student-dialog-card.component';
 import { CoursesDataService } from '../../services/courses-data.service';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { Store } from '@ngrx/store';
+
+import {
+  loadStudents,
+  createStudent,
+  editStudent,
+} from './store/students.actions';
+import { selectStudentsState } from './store/students.selectors';
+import { deleteStudent } from './store/students.actions';
 
 @Component({
   selector: 'app-students-page',
@@ -15,15 +24,18 @@ import { Observable } from 'rxjs';
 })
 export class StudentsPageComponent implements OnInit {
   courses: Observable<Course[]> = this.servicioCou.getCourses();
+  students: Student[] = [];
+  loading = true;
 
   //students: Student[] = this.servicioStu.getStudents();
-  public students$: Observable<Student[]>;
+
+  loading$: Observable<boolean> = new Observable();
 
   displayedColumns = [
-    'id',
     'name',
     'lastName',
     'edad',
+    'cursando',
     'thumbnail',
     'edit',
     'delete',
@@ -32,9 +44,11 @@ export class StudentsPageComponent implements OnInit {
 
   constructor(
     private readonly dialogService: MatDialog,
-    private servicioStu: StudentsDataService,
-    private servicioCou: CoursesDataService
-  ) {}
+    private servicioCou: CoursesDataService,
+    private store: Store
+  ) {
+    this.store.dispatch(loadStudents());
+  }
 
   /* addStudent() {
     const dialog = this.dialogService.open(StudentDialogComponent);
@@ -58,12 +72,28 @@ export class StudentsPageComponent implements OnInit {
     });
   } */
 
-  ngOnInit(): void {
-    this.students$ = this.servicioStu.students;
+  createStudent() {
+    const dialog = this.dialogService.open(StudentDialogComponent);
+    dialog.afterClosed().subscribe((data) => {
+      if (data) {
+        // console.log(data);
+        this.store.dispatch(createStudent({ data }));
+      }
+    });
   }
 
-  clickEliminar(element: Student) {
-    this.servicioStu.eliminarAlumno(element);
+  ngOnInit(): void {
+    this.store.select(selectStudentsState).subscribe((state) => {
+      this.students = state.data;
+      this.loading = state.loading;
+    });
+  }
+
+  // clickEliminar(element: Student) {
+  //   this.servicioStu.eliminarAlumno(element);
+  // }
+  deleteStudent(element: Student) {
+    this.store.dispatch(deleteStudent({ data: element }));
   }
 
   editStudent(element: Student) {
@@ -71,8 +101,9 @@ export class StudentsPageComponent implements OnInit {
       data: element,
     });
     dialog.afterClosed().subscribe((data) => {
-      console.log(data);
-      this.servicioStu.editarAlumno(data);
+      if (data) {
+        this.store.dispatch(editStudent({ data }));
+      }
     });
   }
 

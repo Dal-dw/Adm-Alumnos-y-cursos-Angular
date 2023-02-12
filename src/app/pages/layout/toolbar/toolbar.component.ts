@@ -14,6 +14,8 @@ export class ToolbarComponent {
   icons = ['home', 'shopping_cart', 'event'];
 } */
 
+  showFiller = false;
+
   opcionesObj: ToolbarOption[] = [
     {
       option: 'Home',

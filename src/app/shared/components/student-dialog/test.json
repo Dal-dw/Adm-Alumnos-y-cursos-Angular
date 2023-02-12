@@ -1,0 +1,204 @@
+[
+  {
+    "name": "Isabella",
+    "lastName": "Hammes",
+    "edad": "22",
+    "tipo": "Alumno",
+    "thumbnail": "https://i.pravatar.cc/100?u=a042581f4e29026704i",
+    "cursando": [
+      {
+        "nombre": "CSS",
+        "thumbnail": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
+      },
+      {
+        "nombre": "Javascript",
+        "thumbnail": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+      },
+      {
+        "nombre": "Angular",
+        "thumbnail": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg"
+      }
+    ],
+    "id": "5"
+  },
+  {
+    "name": "Juanita",
+    "lastName": "Gimenez",
+    "edad": "25",
+    "tipo": "Alumno",
+    "thumbnail": "https://i.pravatar.cc/100?img=5",
+    "cursando": [
+      {
+        "nombre": "Angular",
+        "thumbnail": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg"
+      },
+      {
+        "nombre": "React",
+        "thumbnail": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+      }
+    ],
+    "id": "6",
+    "isActive": false
+  },
+  {
+    "name": "Johann",
+    "lastName": "Metz",
+    "edad": "23",
+    "tipo": "Alumno",
+    "thumbnail": "https://i.pravatar.cc/100?u=a042581f4e29026704k",
+    "cursando": [
+      {
+        "nombre": "CSS",
+        "thumbnail": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
+      },
+      {
+        "nombre": "Javascript",
+        "thumbnail": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+      },
+      {
+        "nombre": "Angular",
+        "thumbnail": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg"
+      }
+    ],
+    "id": "7",
+    "isActive": false
+  },
+  {
+    "name": "Era",
+    "lastName": "Conn",
+    "edad": 32,
+    "tipo": "Alumno",
+    "thumbnail": "https://i.pravatar.cc/100?u=a042581f4e29026704m",
+    "cursando": [
+      {
+        "nombre": "Javascript",
+        "thumbnail": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+      },
+      {
+        "nombre": "Angular",
+        "thumbnail": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg"
+      }
+    ],
+    "id": "9"
+  },
+  {
+    "name": "Mohamed",
+    "lastName": "Weissnat",
+    "edad": 53,
+    "tipo": "Alumno",
+    "thumbnail": "https://i.pravatar.cc/100?u=a042581f4e29026704o",
+    "cursando": [
+      {
+        "nombre": "HTML",
+        "thumbnail": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
+      },
+      {
+        "nombre": "CSS",
+        "thumbnail": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
+      }
+    ],
+    "id": "10"
+  },
+  {
+    "name": "Frederick",
+    "lastName": "Schiller",
+    "edad": 42,
+    "tipo": "Alumno",
+    "thumbnail": "https://i.pravatar.cc/100?u=a042581f4e29026704p",
+    "cursando": [
+      {
+        "nombre": "Javascript",
+        "thumbnail": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+      },
+      {
+        "nombre": "React",
+        "thumbnail": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+      }
+    ],
+    "id": "11"
+  },
+  {
+    "name": "Bellaaa",
+    "lastName": "Mayer",
+    "edad": 45,
+    "tipo": "Alumno",
+    "thumbnail": "https://i.pravatar.cc/100?u=a042581f4e29026704q",
+    "cursando": [
+      {
+        "nombre": "HTML",
+        "thumbnail": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
+      },
+      {
+        "nombre": "CSS",
+        "thumbnail": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
+      },
+      {
+        "nombre": "Javascript",
+        "thumbnail": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+      }
+    ],
+    "id": "12"
+  },
+  {
+    "name": "Johnathan",
+    "lastName": "Rau",
+    "edad": 26,
+    "tipo": "Alumno",
+    "thumbnail": "https://i.pravatar.cc/100?u=a042581f4e29026704s",
+    "cursando": [
+      {
+        "nombre": "Javascript",
+        "thumbnail": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+      },
+      {
+        "nombre": "Angular",
+        "thumbnail": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg"
+      }
+    ],
+    "id": "14"
+  },
+  {
+    "name": "Amir",
+    "lastName": "Morissette",
+    "edad": 22,
+    "tipo": "Alumno",
+    "thumbnail": "https://i.pravatar.cc/100?u=a042581f4e29026704t",
+    "cursando": [
+      {
+        "nombre": "CSS",
+        "thumbnail": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
+      }
+    ],
+    "id": "15"
+  },
+  {
+    "name": "Pepe",
+    "lastName": "Cibrian",
+    "edad": "63",
+    "tipo": "",
+    "thumbnail": "https://i.pravatar.cc/100?img=4",
+    "cursando": [
+      {
+        "nombre": "HTML",
+        "thumbnail": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
+      },
+      {
+        "nombre": "CSS",
+        "thumbnail": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
+      },
+      {
+        "nombre": "Javascript",
+        "thumbnail": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+      },
+      {
+        "nombre": "Angular",
+        "thumbnail": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg"
+      },
+      {
+        "nombre": "React",
+        "thumbnail": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+      }
+    ],
+    "id": "17"
+  }
+]

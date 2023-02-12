@@ -9,7 +9,11 @@ import { Router, Routes } from '@angular/router';
 export class HeaderComponent implements OnInit {
   constructor(private readonly router: Router) {}
 
-  ngOnInit(): void {}
+  public loggedUser = '';
+
+  ngOnInit(): void {
+    this.loggedUser = localStorage.getItem('user');
+  }
 
   logout() {
     localStorage.clear();

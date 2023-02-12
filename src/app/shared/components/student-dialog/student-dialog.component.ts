@@ -5,7 +5,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Student } from '../../../models/students.model';
 
 import { CoursesDataService } from 'src/app/services/courses-data.service';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-student-dialog',
@@ -14,6 +14,12 @@ import { Observable } from 'rxjs';
 })
 export class StudentDialogComponent {
   public cursando$: Observable<any[]> = this.servicioCou.getCourses();
+
+  public availableOptions: any[];
+
+  public thumbnailRandom1: string = 'https://i.pravatar.cc/100?img=3';
+  public thumbnailRandom2: string = 'https://i.pravatar.cc/100?img=4';
+  public thumbnailRandom3: string = 'https://i.pravatar.cc/100?img=5';
 
   nameControl = new FormControl('', [
     Validators.required,
@@ -29,6 +35,31 @@ export class StudentDialogComponent {
 
   idControl = new FormControl();
   thumbnailControl = new FormControl();
+
+  ngOnInit() {
+    this.initializeForm();
+  }
+
+  // public availableOptions = [{}];
+
+  initializeForm() {
+    // Asignar valor previo al control, si existe
+    if (this.cursandoControl.value) {
+      this.cursandoControl.setValue(this.cursandoControl.value);
+    }
+  }
+
+  nuevoValue = [];
+  onSelectionChange(event) {
+    const selectedOption = event.value;
+    this.nuevoValue = selectedOption;
+    this.changeValue(selectedOption);
+  }
+
+  changeValue(selectedOption) {
+    const previousSelectedOptions = this.cursandoControl.value;
+    this.cursandoControl.setValue([...previousSelectedOptions, selectedOption]);
+  }
 
   studentForm = new FormGroup({
     name: this.nameControl,
@@ -48,6 +79,7 @@ export class StudentDialogComponent {
     console.log(data);
     if (data) {
       this.studentForm.patchValue(data);
+      this.cursandoControl.setValue(data.cursando);
     }
   }
 

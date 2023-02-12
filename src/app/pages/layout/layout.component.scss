@@ -1,6 +1,6 @@
 .wrapper {
   display: grid;
-
+  grid-template: auto auto auto / 100px 100px;
   height: 100vh;
   row-gap: 10px;
   column-gap: 10px;
@@ -11,8 +11,10 @@
 }
 .toolbar {
   grid-row: 2 / 10;
-  grid-column: 1 / 2;
+  grid-column: 1 / 10;
+  width: max-content;
   background: #000;
+  z-index: 999999;
 }
 .pagess {
   grid-column: 2 / 10;

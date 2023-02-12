@@ -6,4 +6,17 @@
 }
 .nav-menu {
   height: 100%;
+  background: #000;
+}
+.logout-btn {
+  background-color: rgb(199, 202, 19);
+  color: #000;
+}
+.logout {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+small {
+  font-size: 10px;
 }

@@ -4,6 +4,14 @@ import { Course } from '../../models/courses.model';
 import { CourseDialogComponent } from 'src/app/shared/components/course-dialog/course-dialog.component';
 import { CoursesDataService } from 'src/app/services/courses-data.service';
 import { Observable } from 'rxjs';
+import { Store } from '@ngrx/store';
+import {
+  createCourse,
+  deleteCourse,
+  editCourse,
+  loadCourses,
+} from './store/courses.actions';
+import { selectCoursesState } from './store/courses.selectors';
 
 @Component({
   selector: 'app-courses-page',
@@ -11,9 +19,18 @@ import { Observable } from 'rxjs';
   styleUrls: ['./courses-page.component.scss'],
 })
 export class CoursesPageComponent implements OnInit {
-  ngOnInit(): void {}
+  courses: Course[] = [];
+  loading = true;
 
-  public courses: Observable<Course[]> = this.servicioCou.getCourses();
+  loading$: Observable<boolean> = new Observable();
+
+  ngOnInit(): void {
+    this.store.select(selectCoursesState).subscribe((state) => {
+      this.courses = state.data;
+      this.loading = state.loading;
+    });
+  }
+  //public courses: Observable<Course[]> = this.servicioCou.getCourses();
 
   displayedColumns = [
     'id',
@@ -28,29 +45,36 @@ export class CoursesPageComponent implements OnInit {
 
   constructor(
     private readonly dialogService: MatDialog,
-    private servicioCou: CoursesDataService
-  ) {}
+    private servicioCou: CoursesDataService,
+    private store: Store
+  ) {
+    this.store.dispatch(loadCourses());
+  }
 
-  /* addCourse() {
+  createCourse() {
     const dialog = this.dialogService.open(CourseDialogComponent);
 
-    dialog.afterClosed().subscribe((value) => {
-      if (value) {
-        const lastId = this.courses[this.courses.length - 1]?.id;
-        this.courses = [
-          ...this.courses,
-          new Course(
-            lastId + 1,
-            value.name,
-            value.hours,
-            value.classes,
-            value.teacher,
-            value.thumbnail
-          ),
-        ];
+    dialog.afterClosed().subscribe((data) => {
+      if (data) {
+        this.store.dispatch(createCourse({ data }));
       }
     });
   }
+  deleteCourse(element: Course) {
+    this.store.dispatch(deleteCourse({ data: element }));
+  }
+
+  editCourse(element: Course) {
+    const dialog = this.dialogService.open(CourseDialogComponent, {
+      data: element,
+    });
+    dialog.afterClosed().subscribe((data) => {
+      if (data) {
+        this.store.dispatch(editCourse({ data }));
+      }
+    });
+  }
+  /*
   removeCourse(course: Course) {
     this.courses = this.courses.filter((cou) => cou.id !== course.id);
   }

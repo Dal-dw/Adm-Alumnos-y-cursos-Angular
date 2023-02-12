@@ -1,12 +1,5 @@
 <div class="header-container">
   <mat-toolbar color="primary" class="nav-menu">
-    <button
-      mat-icon-button
-      class="example-icon"
-      aria-label="Example icon-button with menu icon"
-    >
-      <mat-icon>menu</mat-icon>
-    </button>
     <span titleSize>CODINGHOME</span>
     <span class="example-spacer"></span>
     <button
@@ -16,7 +9,6 @@
     >
       <mat-icon>favorite</mat-icon>
     </button>
-    <button mat-raised-button color="warn" (click)="logout()">LogOut</button>
 
     <button
       mat-icon-button
@@ -25,5 +17,16 @@
     >
       <mat-icon>share</mat-icon>
     </button>
+    <div class="logout">
+      <button
+        class="logout-btn"
+        mat-raised-button
+        color="accent"
+        (click)="logout()"
+      >
+        LogOut
+      </button>
+      <small>{{ loggedUser }}</small>
+    </div>
   </mat-toolbar>
 </div>

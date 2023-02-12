@@ -5,20 +5,29 @@
   border: solid 1px grey;
 }
 .card-content {
-  padding: 90px;
+  padding: 50px;
 }
 .img-courses {
-  width: 30%;
+  width: 25%;
 }
 table {
-  width: 100%;
+  width: 80%;
 }
-.td-prof {
-  width: 25%;
+td {
+  width: 30%;
+}
+th {
+  width: 30%;
 }
 .columna-courses {
   width: 20%;
 }
 .td-img {
   width: 30%;
+}
+.tabla {
+  margin-top: 20px;
+}
+.iconDelete {
+  color: rgb(138, 53, 53);
 }

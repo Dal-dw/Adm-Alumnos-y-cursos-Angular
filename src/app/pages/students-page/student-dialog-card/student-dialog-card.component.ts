@@ -19,15 +19,7 @@ export class StudentDialogCardComponent implements OnInit {
     thumbnail: '',
   };
 
-  displayedColumns = [
-    'name',
-    'hours',
-    'classes',
-    'teacher',
-    'thumbnail',
-
-    'delete',
-  ];
+  displayedColumns = ['name', 'thumbnail', 'delete'];
 
   constructor(
     public readonly MatDialogRef: MatDialogRef<StudentDialogCardComponent>,

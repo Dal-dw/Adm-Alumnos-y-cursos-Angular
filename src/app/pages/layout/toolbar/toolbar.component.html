@@ -1,34 +1,44 @@
-<div class="toolbar-container">
-  <mat-selection-list #shoes [multiple]="false">
-    <mat-list-option>
-      <div class="opciones">
-        <mat-icon color="primary">home</mat-icon>
-        <a routerLink="" class="text">Home</a>
-      </div>
-    </mat-list-option>
-    <mat-list-option>
-      <div class="opciones">
-        <mat-icon color="primary">school</mat-icon>
-        <a routerLink="cursos/cursoslista" class="text">Cursos</a>
-      </div>
-    </mat-list-option>
-    <mat-list-option>
-      <div class="opciones">
-        <mat-icon color="primary">person</mat-icon>
-        <a routerLink="alumnos/alumnoslista" class="text">Alumnos</a>
-      </div>
-    </mat-list-option>
-    <mat-list-option>
-      <div class="opciones">
-        <mat-icon color="primary">event</mat-icon>
-        <a routerLink="" class="text">Inscripciones</a>
-      </div>
-    </mat-list-option>
-    <mat-list-option>
-      <div class="opciones">
-        <mat-icon color="primary">card_giftcard</mat-icon>
-        <a routerLink="" class="text">Beneficios</a>
-      </div>
-    </mat-list-option>
-  </mat-selection-list>
-</div>
+<button
+  mat-icon-button
+  class="boton-menu"
+  aria-label="Example icon-button with menu icon"
+  (click)="drawer.toggle()"
+>
+  <mat-icon>menu</mat-icon>
+</button>
+<mat-drawer-container class="toolbar-container" autosize>
+  <mat-drawer #drawer class="example-sidenav toolbar" mode="over">
+    <mat-selection-list #shoes [multiple]="false">
+      <mat-list-option>
+        <div class="opciones">
+          <mat-icon color="primary">home</mat-icon>
+          <a routerLink="" class="text">Home</a>
+        </div>
+      </mat-list-option>
+      <mat-list-option>
+        <div class="opciones">
+          <mat-icon color="primary">school</mat-icon>
+          <a routerLink="cursos/cursoslista" class="text">Cursos</a>
+        </div>
+      </mat-list-option>
+      <mat-list-option>
+        <div class="opciones">
+          <mat-icon color="primary">person</mat-icon>
+          <a routerLink="alumnos/alumnoslista" class="text">Alumnos</a>
+        </div>
+      </mat-list-option>
+      <mat-list-option>
+        <div class="opciones">
+          <mat-icon color="primary">event</mat-icon>
+          <a routerLink="" class="text">Inscripciones</a>
+        </div>
+      </mat-list-option>
+      <mat-list-option>
+        <div class="opciones">
+          <mat-icon color="primary">card_giftcard</mat-icon>
+          <a routerLink="" class="text">Beneficios</a>
+        </div>
+      </mat-list-option>
+    </mat-selection-list>
+  </mat-drawer>
+</mat-drawer-container>

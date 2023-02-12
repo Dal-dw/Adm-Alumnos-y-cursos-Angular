@@ -1,5 +1,7 @@
 <div class="container">
-  <button class="btn" mat-flat-button color="accent">Agregar Curso</button>
+  <button class="btn" mat-flat-button color="accent" (click)="createCourse()">
+    Agregar Curso
+  </button>
   <mat-toolbar color="accent">
     <span titleSize>Listado de Cursos</span>
   </mat-toolbar>
@@ -41,6 +43,7 @@
           mat-icon-button
           color="primary"
           aria-label="Example icon button with a plus one icon"
+          (click)="editCourse(element)"
         >
           <mat-icon>edit</mat-icon>
         </button>
@@ -53,6 +56,7 @@
           mat-icon-button
           color="primary"
           aria-label="Example icon button with a plus one icon"
+          (click)="deleteCourse(element)"
         >
           <mat-icon>delete</mat-icon>
         </button>
