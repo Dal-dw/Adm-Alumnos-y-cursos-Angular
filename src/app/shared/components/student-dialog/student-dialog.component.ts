@@ -37,28 +37,31 @@ export class StudentDialogComponent {
   thumbnailControl = new FormControl();
 
   ngOnInit() {
-    this.initializeForm();
+    this.studentForm = new FormGroup({
+      name: this.nameControl,
+      lastName: this.lastNameControl,
+      edad: this.edadControl,
+      tipo: this.tipoControl,
+      id: this.idControl,
+      thumbnail: this.thumbnailControl,
+      cursando: this.cursandoControl,
+    });
+    this.studentForm.updateValueAndValidity();
   }
 
   // public availableOptions = [{}];
 
-  initializeForm() {
-    // Asignar valor previo al control, si existe
-    if (this.cursandoControl.value) {
-      this.cursandoControl.setValue(this.cursandoControl.value);
-    }
-  }
-
   nuevoValue = [];
   onSelectionChange(event) {
     const selectedOption = event.value;
-    this.nuevoValue = selectedOption;
-    this.changeValue(selectedOption);
-  }
+    const previousSelectedOptions = this.cursandoControl.defaultValue;
 
-  changeValue(selectedOption) {
-    const previousSelectedOptions = this.cursandoControl.value;
-    this.cursandoControl.setValue([...previousSelectedOptions, selectedOption]);
+    if (!previousSelectedOptions.includes(selectedOption)) {
+      this.cursandoControl.setValue([
+        ...previousSelectedOptions,
+        selectedOption,
+      ]);
+    }
   }
 
   studentForm = new FormGroup({
@@ -76,7 +79,6 @@ export class StudentDialogComponent {
     @Inject(MAT_DIALOG_DATA) public data: Student | null,
     private servicioCou: CoursesDataService
   ) {
-    console.log(data);
     if (data) {
       this.studentForm.patchValue(data);
       this.cursandoControl.setValue(data.cursando);
@@ -84,10 +86,9 @@ export class StudentDialogComponent {
   }
 
   close() {
+    console.log(this.studentForm.valid);
     if (this.studentForm.valid) {
       this.MatDialogRef.close();
-    } else {
-      console.log('not valid');
     }
   }
 }

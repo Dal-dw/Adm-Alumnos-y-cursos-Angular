@@ -25,7 +25,6 @@ export class UserDialogComponent {
     private readonly MatDialogRef: MatDialogRef<UserDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: User | null
   ) {
-    console.log(data);
     if (data) {
       this.userForm.patchValue(data);
     }

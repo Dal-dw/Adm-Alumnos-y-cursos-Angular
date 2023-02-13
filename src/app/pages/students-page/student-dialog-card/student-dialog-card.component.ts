@@ -25,7 +25,6 @@ export class StudentDialogCardComponent implements OnInit {
     public readonly MatDialogRef: MatDialogRef<StudentDialogCardComponent>,
     @Inject(MAT_DIALOG_DATA) public data: Student | null
   ) {
-    console.log(data);
     if (data) {
       this.studentDetails = data;
     }

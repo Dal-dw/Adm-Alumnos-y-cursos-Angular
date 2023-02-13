@@ -4,16 +4,20 @@
     <mat-form-field appearance="fill">
       <mat-label>Nombre</mat-label>
       <input [formControl]="nameControl" matInput placeholder="" />
-      <small class="text-danger">{{ nameControl.errors | json }} </small>
+      <div *ngIf="nameControl.invalid && nameControl.touched">
+        <p *ngIf="nameControl.errors['required']">El campo es requerido</p>
+        <p *ngIf="nameControl.errors['minlength']">
+          El campo debe tener al menos 3 caracteres
+        </p>
+      </div>
     </mat-form-field>
 
     <mat-form-field appearance="fill">
       <mat-label>Apellido</mat-label>
       <input [formControl]="lastNameControl" matInput placeholder="" />
     </mat-form-field>
-    {{ studentForm.errors | json }}
+
     <br />
-    {{ studentForm.value | json }}
 
     <mat-form-field appearance="fill">
       <mat-label>Edad</mat-label>
@@ -84,6 +88,7 @@
         [mat-dialog-close]="studentForm.value"
         [type]=""
         cdkFocusInitial
+        [disabled]="!studentForm.valid"
       >
         Ok
       </button>

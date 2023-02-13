@@ -76,7 +76,6 @@ export class StudentsPageComponent implements OnInit {
     const dialog = this.dialogService.open(StudentDialogComponent);
     dialog.afterClosed().subscribe((data) => {
       if (data) {
-        // console.log(data);
         this.store.dispatch(createStudent({ data }));
       }
     });

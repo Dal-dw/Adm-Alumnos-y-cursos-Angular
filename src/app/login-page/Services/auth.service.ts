@@ -30,13 +30,7 @@ export class AuthService {
         ),
         map(
           ({ data }) =>
-            new User(
-              data.id,
-              data.email,
-              data.first_name,
-              data.last_name,
-              data.avatar
-            )
+            new User(data.id, data.email, data.first_name, data.last_name)
         ),
         tap((user) => this.sessionService.setUser(user)),
         tap((data) => localStorage.setItem('user', data.email))

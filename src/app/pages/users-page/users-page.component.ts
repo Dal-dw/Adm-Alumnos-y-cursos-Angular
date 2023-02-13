@@ -11,57 +11,13 @@ import { User } from '../../models/users.model';
 })
 export class UsersPageComponent implements OnInit {
   users: User[] = [
-    {
-      id: 1,
-      email: 'juan@gmail.com',
-      first_name: 'Juan',
-      last_name: 'Pérez',
-
-      avatar: 'https://i.pravatar.cc/100?u=a042581f4e29026704y',
-    },
-    {
-      id: 2,
-      email: 'nombre@email.com',
-      first_name: 'Ana',
-      last_name: 'González',
-
-      avatar: 'https://i.pravatar.cc/100?u=a042581f4e29026704t',
-    },
-    {
-      id: 3,
-      email: 'nombre@email.com',
-      first_name: 'Pedro',
-      last_name: 'Martínez',
-
-      avatar: 'https://i.pravatar.cc/100?u=a042581f4e29026704u',
-    },
-    {
-      id: 4,
-      email: 'nombre@email.com',
-      first_name: 'Sandra',
-      last_name: 'Rodríguez',
-
-      avatar: 'https://i.pravatar.cc/100?u=a042581f4e29026704n',
-    },
-    {
-      id: 5,
-      email: 'nombre@email.com',
-      first_name: 'Laura',
-      last_name: 'Sánchez',
-
-      avatar: 'https://i.pravatar.cc/100?u=a042581f4e29026704d',
-    },
+    { id: 1, email: 'user1@example.com', password: '123456', tipo: 'admin' },
+    { id: 2, email: 'user2@example.com', password: '123456', tipo: 'user' },
+    { id: 3, email: 'user3@example.com', password: '123456', tipo: 'admin' },
+    { id: 4, email: 'user4@example.com', password: '123456', tipo: 'user' },
   ];
 
-  displayedColumns = [
-    'id',
-    'name',
-    'lastName',
-    'edad',
-    'thumbnail',
-    'edit',
-    'delete',
-  ];
+  displayedColumns = ['id'];
 
   constructor(private readonly dialogService: MatDialog) {}
 

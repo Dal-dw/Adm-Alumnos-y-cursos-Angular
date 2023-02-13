@@ -25,19 +25,14 @@ export class AuthService {
       .pipe(
         tap((data) => localStorage.setItem('token', data.token)),
         mergeMap(() =>
-          this.httpClient.get<SingleUserResponse>(`${this.apiUrl}/users/7`)
+          this.httpClient.get<SingleUserResponse>(`${this.apiUrl}/users/9`)
         ),
         map(
           ({ data }) =>
-            new User(
-              data.id,
-              data.email,
-              data.first_name,
-              data.last_name,
-              data.avatar
-            )
+            new User(data.id, data.email, data.first_name, data.last_name)
         ),
-        tap((user) => this.sessionService.setUser(user))
+        tap((user) => this.sessionService.setUser(user)),
+        tap((user) => localStorage.setItem('user', user.email))
       );
   }
 }

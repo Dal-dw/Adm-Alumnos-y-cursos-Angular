@@ -7,6 +7,11 @@ export interface Course {
   id: number;
 }
 
+export interface CourseSel {
+  name: string;
+  thumbnail: string;
+}
+
 /* export class Course {
   constructor(
     public id: number,
