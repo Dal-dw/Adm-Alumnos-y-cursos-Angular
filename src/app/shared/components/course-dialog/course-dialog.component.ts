@@ -17,8 +17,13 @@ export class CourseDialogComponent {
   hoursControl = new FormControl(0, [
     Validators.required,
     Validators.minLength(1),
+    Validators.min(1),
   ]);
-  classesControl = new FormControl();
+  classesControl = new FormControl(0, [
+    Validators.required,
+    Validators.minLength(1),
+    Validators.min(1),
+  ]);
 
   teacherControl = new FormControl();
 
@@ -44,6 +49,8 @@ export class CourseDialogComponent {
     }
   }
   close() {
-    this.MatDialogRef.close();
+    if (this.courseForm.valid) {
+      this.MatDialogRef.close();
+    }
   }
 }

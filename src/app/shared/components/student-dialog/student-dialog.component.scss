@@ -1,5 +1,5 @@
 .cursando-img {
-  width: 10%;
+  width: 5%;
   object-fit: contain;
   margin-top: 10px;
   margin-right: 10px;
@@ -12,4 +12,10 @@ span {
 
   padding: 20px;
   width: 100%;
+}
+.form-container {
+  width: 500px;
+}
+mat-form-field {
+  margin-top: 10px;
 }

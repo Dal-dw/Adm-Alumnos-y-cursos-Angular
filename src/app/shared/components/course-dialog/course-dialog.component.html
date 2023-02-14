@@ -4,16 +4,35 @@
     <mat-form-field appearance="fill">
       <mat-label>Nombre</mat-label>
       <input [formControl]="nameControl" matInput placeholder="" />
+      <mat-error *ngIf="nameControl.hasError('required')"
+        >Este campo es requerido</mat-error
+      >
     </mat-form-field>
 
     <mat-form-field appearance="fill" class="form">
       <mat-label>Horas</mat-label>
       <input [formControl]="hoursControl" matInput placeholder="" />
+      <mat-error
+        *ngIf="
+          hoursControl.hasError('required') ||
+          hoursControl.hasError('min') ||
+          hoursControl.hasError('minlength')
+        "
+        >Este campo es requerido y debe tener un valor</mat-error
+      >
     </mat-form-field>
 
     <mat-form-field appearance="fill">
       <mat-label>Clases</mat-label>
       <input [formControl]="classesControl" matInput placeholder="" />
+      <mat-error
+        *ngIf="
+          classesControl.hasError('required') ||
+          classesControl.hasError('min') ||
+          classesControl.hasError('minlength')
+        "
+        >Este campo es requerido y debe tener un valor</mat-error
+      >
     </mat-form-field>
 
     <mat-form-field appearance="fill">
@@ -35,6 +54,7 @@
     color="accent"
     [mat-dialog-close]="courseForm.value"
     cdkFocusInitial
+    [disabled]="!courseForm.valid"
   >
     Ok
   </button>

@@ -4,17 +4,24 @@
     <mat-form-field appearance="fill">
       <mat-label>Nombre</mat-label>
       <input [formControl]="nameControl" matInput placeholder="" />
-      <div *ngIf="nameControl.invalid && nameControl.touched">
-        <p *ngIf="nameControl.errors['required']">El campo es requerido</p>
-        <p *ngIf="nameControl.errors['minlength']">
-          El campo debe tener al menos 3 caracteres
-        </p>
-      </div>
+      <mat-error
+        *ngIf="
+          nameControl.hasError('required') || nameControl.hasError('minlength')
+        "
+        >Este campo es requerido y debe tener al menos tres letras</mat-error
+      >
     </mat-form-field>
 
     <mat-form-field appearance="fill">
       <mat-label>Apellido</mat-label>
       <input [formControl]="lastNameControl" matInput placeholder="" />
+      <mat-error
+        *ngIf="
+          lastNameControl.hasError('required') ||
+          lastNameControl.hasError('minlength')
+        "
+        >Este campo es requerido y debe tener al menos dos letras</mat-error
+      >
     </mat-form-field>
 
     <br />
